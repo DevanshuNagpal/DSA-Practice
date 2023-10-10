@@ -1,9 +1,10 @@
 package Strings;
 
-public class subsequences {
+public class string {
     public static void main(String[] args) {
 //        skip("","bacaacd");
-        System.out.println(skip("bdcaaaaaaksk"));
+//        System.out.println(skip("bdcaaaaaaksk"));
+        System.out.println(skipApple("bdcaaaappleaaksk"));
     }
 //    Skip a character
 
@@ -37,5 +38,30 @@ public class subsequences {
         }
 
 
+
     }
+    static String skipApple(String str) {
+        if (str.isEmpty()) {
+            return "";
+        }
+
+        if (str.startsWith("apple")) {
+            return skipApple(str.substring(5));
+        } else {
+            return str.charAt(0)+ skipApple(str.substring(1));
+        }
+    }
+
+    static String skipApp(String str) {
+        if (str.isEmpty()) {
+            return "";
+        }
+
+        if (str.startsWith("app") && !str.startsWith("apple")) {
+            return skipApple(str.substring(3));
+        } else {
+            return str.charAt(0)+ skipApple(str.substring(1));
+        }
+    }
+
 }
